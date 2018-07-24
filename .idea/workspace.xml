@@ -1,13 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="8d52ac3c-c004-439a-9bfd-49e07b88fece" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/company/ParseTopics.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/TopicGraph.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/TopicGraph.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/TopicNode.java" beforeDir="false" />
-    </list>
+    <list default="true" id="8d52ac3c-c004-439a-9bfd-49e07b88fece" name="Default" comment="" />
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -229,12 +223,12 @@
       <option name="presentableId" value="Default" />
       <updated>1532362428531</updated>
       <workItem from="1532362453854" duration="11869000" />
-      <workItem from="1532388094123" duration="2014000" />
+      <workItem from="1532388094123" duration="2209000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="13883000" />
+    <option name="totallyTimeSpent" value="14078000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-1" y="-11" width="1602" height="912" extended-state="6" />
