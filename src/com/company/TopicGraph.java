@@ -1,48 +1,38 @@
 package com.company;
 
-import java.util.ArrayDeque;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Queue;
+import java.util.*;
 
 public class TopicGraph extends HashMap<String, ArrayList<String>> {
+    private ArrayList<String> lastAdded = null;
     public static int MAX_DEPTH = 1000;
-    private String start;
-    private String end;
 
     TopicGraph() { }
 
-    TopicGraph(final String startingUri, final String endingUri) {
+    TopicGraph(final String startingUri) {
         super();
-        start = startingUri;
-        end = endingUri;
+        addURI(startingUri);
     }
 
     public static void main(String [] args) {
-        TopicGraph topicGraph = new TopicGraph("/wiki/gardening", "/wiki/Afghanistan");
-        ArrayList<String> result = topicGraph.start(TopicGraph.MAX_DEPTH);
-        for (String node : result) {
-            System.out.print(node + " -> ");
-        }
+        TopicGraph topicGraph = new TopicGraph("/wiki/gardening");
+        topicGraph.addURI(topicGraph.getLastAdded().get(0));
+        topicGraph.display();
     }
 
-    private ArrayList<String> start(int depth) {
-        return addURIRecursive(start, depth);
+    public ArrayList<String> getLastAdded() {
+        return lastAdded;
     }
 
-    private ArrayList<String> addURIRecursive(String current, int depth) {
-        System.out.println("Adding: " + current);
-        if (!addURI(current)) return null;
-        ArrayList<String> relatedTopics = super.get(current);
-        ++depth;
-        for (String topic : relatedTopics) {
-            ArrayList<String> foundRoute = findRoute(start, end);
-            if (foundRoute != null) return foundRoute;
-            else {
-                addURIRecursive(topic, depth);
+    private void display() {
+        Set<String> keys = super.keySet();
+        for (String key : keys) {
+            System.out.print(key + " -> ");
+            ArrayList<String> topics = super.get(key);
+            for (String topic : topics) {
+                System.out.print(topic + ",");
             }
+            System.out.println();
         }
-        return null;
     }
 
     // Add a topic to the hashmap by the uri
@@ -50,8 +40,11 @@ public class TopicGraph extends HashMap<String, ArrayList<String>> {
         ArrayList<String> newTopics = ParseTopics.getMentionedTopics(newURI);
         System.out.println("Adding topic: " + newURI + " related topic: " + newTopics.get(0));
         if (null != newTopics) {
-            super.putIfAbsent(newURI, newTopics);
-            return true;
+            // Return TRUE if it has successfully been added
+            if (super.putIfAbsent(newURI, newTopics) == null) {
+                lastAdded = newTopics;
+                return true;
+            }
         }
         return false;
     }
