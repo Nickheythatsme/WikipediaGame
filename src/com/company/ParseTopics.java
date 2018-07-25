@@ -7,22 +7,22 @@ import java.util.Stack;
 
 public class ParseTopics {
 
-    public static void main(String[] args) throws Exception {
-
+    public static void main(String [] args) {
+        try {
+            ArrayList<String> list = ParseTopics.getMentionedTopics("/wiki/gardening");
+            for (String l : list) {
+                System.out.println(l);
+            }
+        } catch (java.io.IOException e) {
+            e.printStackTrace();
+        }
     }
 
-    public static ArrayList<String> getMentionedTopics(final String pageUri) {
+    public static ArrayList<String> getMentionedTopics(final String pageUri) throws java.io.IOException {
         ArrayList<String> topicList;
         String [] toReturn = null;
-        try {
-            WikiPage page = new WikiPage(pageUri);
-            topicList = parsePayload(page.getPayload());
-        } catch (IOException e) {
-            e.printStackTrace();
-            System.out.println("Error pulling page from : " + pageUri);
-            return null;
-        }
-
+        WikiPage page = new WikiPage(pageUri);
+        topicList = parsePayload(page.getPayload());
         return topicList;
     }
 
