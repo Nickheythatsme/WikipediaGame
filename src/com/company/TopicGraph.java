@@ -9,7 +9,7 @@ public class TopicGraph extends HashMap<String, ArrayList<String>> {
 
     TopicGraph(final String startingUri) {
         super();
-        addURI(startingUri);
+        add(startingUri);
     }
 
     public static void main(String [] args) {
@@ -35,9 +35,10 @@ public class TopicGraph extends HashMap<String, ArrayList<String>> {
     }
 
     // Add a topic to the hashmap by the uri
-    public boolean addURI(final String newURI) {
+    public boolean add(final String newURI) {
         try {
             TopicNode newNode = new TopicNode(newURI);
+            // TODO remove when not testing
             System.out.println("Adding topic: " + newURI + " related topic: " + newNode.get(0));
             // Return TRUE if it has successfully been added
             if (super.putIfAbsent(newNode.getTopic(), newNode) != null) {
