@@ -7,7 +7,7 @@ import java.util.Stack;
 
 public class ParseTopics {
 
-    public static void main(String [] args) {
+    public static void main(String [] args) throws Exception {
         try {
             ArrayList<String> list = ParseTopics.getMentionedTopics("/wiki/gardening");
             for (String l : list) {

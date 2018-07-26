@@ -20,6 +20,7 @@ public class FillGraph {
     }
 
     public boolean start() {
+        return false;
     }
 
     private boolean start(String currentTopic) {
@@ -32,5 +33,6 @@ public class FillGraph {
             e.printStackTrace();
             System.out.println("Unable to get page: " + currentTopic);
         }
+        return false;
     }
 }
