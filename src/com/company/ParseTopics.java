@@ -1,9 +1,6 @@
 package com.company;
 
-import java.io.IOException;
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Stack;
 
 public class ParseTopics {
 
@@ -23,6 +20,10 @@ public class ParseTopics {
         String [] toReturn = null;
         WikiPage page = new WikiPage(pageUri);
         topicList = parsePayload(page.getPayload());
+        while (topicList.contains(pageUri)) {
+            topicList.remove(pageUri);
+        }
+
         return topicList;
     }
 

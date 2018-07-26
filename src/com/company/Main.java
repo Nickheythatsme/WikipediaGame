@@ -3,7 +3,8 @@ package com.company;
 public class Main {
 
     public static void main(String[] args) {
-	// write your code here
-        System.out.println("hello!");
+        WikiGraph wikiGraph = new WikiGraph("/wiki/Family_Guy","/wiki/SpongeBob_SquarePants");
+        wikiGraph.startSearch();
+        wikiGraph.displayPath();
     }
 }
